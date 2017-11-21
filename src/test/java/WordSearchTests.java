@@ -1,5 +1,6 @@
 import org.junit.Test;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
 public class WordSearchTests {
@@ -17,6 +18,13 @@ public class WordSearchTests {
         }
 
         assertTrue(allWordsFound);
+    }
+
+    @Test
+    public void FirstLineOfWordSearchReadInProperly(){
+        WordSearcher wordSearcher = new WordSearcher("../../StarTrekWordSearch.txt");
+
+        assertEquals("UMKHULKINVJOCWE", wordSearcher.getWordSearch()[0]);
     }
 
 }
