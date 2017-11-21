@@ -27,4 +27,11 @@ public class WordSearchTests {
         assertEquals("UMKHULKINVJOCWE", wordSearcher.getWordSearch()[0]);
     }
 
+    @Test
+    public void LastLineOfWordSearchReadInProperly(){
+        WordSearcher wordSearcher = new WordSearcher("../../StarTrekWordSearch.txt");
+
+        assertEquals("KYLBQQPMDFCKEAB", wordSearcher.getWordSearch()[14]);
+    }
+
 }
