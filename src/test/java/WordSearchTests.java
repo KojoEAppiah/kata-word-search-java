@@ -7,7 +7,7 @@ public class WordSearchTests {
 
     @Test
     public void WordListReadInProperly(){
-        WordSearcher wordSearcher = new WordSearcher("../../StarTrekWordSearch.txt");
+        WordSearcher wordSearcher = new WordSearcher("StarTrekWordSearch.txt");
         boolean allWordsFound = true;
         String[] targetWordList = {"BONES","KHAN","KIRK","SCOTTY","SPOCK","SULU","UHURA"};
         String[] wordList = wordSearcher.getWordList();
@@ -22,23 +22,30 @@ public class WordSearchTests {
 
     @Test
     public void FirstLineOfWordSearchReadInProperly(){
-        WordSearcher wordSearcher = new WordSearcher("../../StarTrekWordSearch.txt");
+        WordSearcher wordSearcher = new WordSearcher("StarTrekWordSearch.txt");
 
         assertEquals("UMKHULKINVJOCWE", wordSearcher.getWordSearch()[0]);
     }
 
     @Test
     public void LastLineOfWordSearchReadInProperly(){
-        WordSearcher wordSearcher = new WordSearcher("../../StarTrekWordSearch.txt");
+        WordSearcher wordSearcher = new WordSearcher("StarTrekWordSearch.txt");
 
         assertEquals("KYLBQQPMDFCKEAB", wordSearcher.getWordSearch()[14]);
     }
 
     @Test
     public void MiddleLineOfWordSearchReadInProperly(){
-        WordSearcher wordSearcher = new WordSearcher("../../StarTrekWordSearch.txt");
+        WordSearcher wordSearcher = new WordSearcher("StarTrekWordSearch.txt");
 
         assertEquals("BLQSLNEEEVULFMZ", wordSearcher.getWordSearch()[6]);
+    }
+
+    @Test
+    public void SearchAcrossTheXAxis(){
+        WordSearcher wordSearcher = new WordSearcher("StarTrekWordSearch.txt");
+        wordSearcher.searchHorizontal();
+        assertEquals("SCOTTY: (0,5),(1,5),(2,5),(3,5),(4,5),(5,5)", wordSearcher.getCoordinateList());
     }
 
 }
