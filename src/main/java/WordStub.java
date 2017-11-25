@@ -3,8 +3,8 @@ import java.util.ArrayList;
 
 public class WordStub {
 
-    String wordStub;
-    ArrayList<Point> letterCoordinates;
+    private String wordStub;
+    private ArrayList<Point> letterCoordinates;
 
     public WordStub(String wordStub){
         this.wordStub = wordStub;

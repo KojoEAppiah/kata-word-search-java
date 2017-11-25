@@ -46,17 +46,32 @@ public class WordSearcher {
 
     public void searchHorizontal(){
         WordStub wordStub = new WordStub("");
-        String currentRow = "";
-        for(int row = 0; row < this.wordSearch.length; row++){
-            currentRow = this.wordSearch[row];
-            for(int x = 0; x < currentRow.length(); x++){
-                wordStub.addLetter(this.wordSearch[row].charAt(x), new Point(x, row));
+        for(int y = 0; y < this.wordSearch.length; y++){
+            for(int x = 0; x < this.wordSearch.length; x++){
+                wordStub.addLetter(this.wordSearch[y].charAt(x), new Point(x, y));
                 if(wordStub.checkWordStubAgainstFullWordList(this.wordList)) {
                     this.wordCoordinates.put(wordStub.getWordStub(), wordStub.getLetterCoordinates());
                     wordStub.reset();
                 }
                 else if(!wordStub.checkWordStubAgainstPartialWordList(this.wordList))
                     wordStub.reset();
+            }
+        }
+    }
+
+    public void searchVertical(){
+        WordStub wordStub = new WordStub("");
+        for(int x = 0; x < this.wordSearch.length; x++){
+            for(int y = 0; y < this.wordSearch.length; y++){
+                wordStub.addLetter(this.wordSearch[y].charAt(x), new Point(x, y));
+                if(wordStub.checkWordStubAgainstFullWordList(this.wordList)) {
+                    this.wordCoordinates.put(wordStub.getWordStub(), wordStub.getLetterCoordinates());
+                    wordStub.reset();
+                }
+                else if(!wordStub.checkWordStubAgainstPartialWordList(this.wordList)) {
+                    y -= wordStub.getWordStub().length() - 1;
+                    wordStub.reset();
+                }
             }
         }
     }
@@ -73,4 +88,5 @@ public class WordSearcher {
 
         return coordinateList;
     }
+
 }

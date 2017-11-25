@@ -48,4 +48,10 @@ public class WordSearchTests {
         assertEquals("SCOTTY: (0,5),(1,5),(2,5),(3,5),(4,5),(5,5)", wordSearcher.getCoordinateList());
     }
 
+    @Test
+    public void SearchAcrossTheYAxis(){
+        WordSearcher wordSearcher = new WordSearcher("StarTrekWordSearch.txt");
+        wordSearcher.searchVertical();
+        assertEquals("BONES: (0,6),(0,7),(0,8),(0,9),(0,10)", wordSearcher.getCoordinateList());
+    }
 }
